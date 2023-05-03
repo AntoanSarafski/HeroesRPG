@@ -15,8 +15,14 @@ namespace HeroesRPG.Models.Heroes
         private IWeapon weapon;
         private bool isAlive;
 
-        public string Name 
-        { 
+        public Hero(string name, int health, int armour)
+        {
+            Name = name;
+            Health = health;
+            Armour = armour;
+        }
+        public string Name
+        {
             get => name;
             private set
             {
@@ -24,7 +30,7 @@ namespace HeroesRPG.Models.Heroes
                 {
                     throw new ArgumentException("Hero name cannot be null or empty.");
                 }
-                name = value; 
+                name = value;
             }
         }
 
@@ -33,7 +39,7 @@ namespace HeroesRPG.Models.Heroes
             get => health;
             private set
             {
-                if(value<0)
+                if (value < 0)
                 {
                     throw new ArgumentException("Hero health cannot be below 0.");
                 }
@@ -41,7 +47,7 @@ namespace HeroesRPG.Models.Heroes
             }
         }
 
-        public int Armour 
+        public int Armour
         {
             get => armour;
             private set
@@ -82,7 +88,6 @@ namespace HeroesRPG.Models.Heroes
                 }
             }
         }
-
 
         public void AddWeapon(IWeapon weapon)
         {
