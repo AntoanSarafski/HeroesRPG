@@ -7,4 +7,10 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <Folder Include="Models\Heroes\" />
+    <Folder Include="Models\Map\" />
+    <Folder Include="Models\Weapons\" />
+  </ItemGroup>
+
 </Project>
