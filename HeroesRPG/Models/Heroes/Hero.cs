@@ -54,9 +54,34 @@ namespace HeroesRPG.Models.Heroes
             }
         }
 
-        public IWeapon Weapon { get => weapon; private set => weapon = value; }
+        public IWeapon Weapon
+        {
+            get => weapon;
+            private set
+            {
+                if (value == null)
+                {
+                    throw new ArgumentException("Weapon cannot be null.");
+                }
+                weapon = value;
+            }
+        }
 
-        public bool IsAlive { get => isAlive; private set => isAlive = value; }
+        public bool IsAlive
+        {
+            get => isAlive;
+            private set
+            {
+                if (Health > 0)
+                {
+                    isAlive = true;
+                }
+                else
+                {
+                    isAlive = false;
+                }
+            }
+        }
 
 
         public void AddWeapon(IWeapon weapon)
