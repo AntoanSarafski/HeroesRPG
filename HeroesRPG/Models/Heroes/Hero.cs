@@ -28,9 +28,31 @@ namespace HeroesRPG.Models.Heroes
             }
         }
 
-        public int Health { get => health; private set => health = value; }
+        public int Health
+        {
+            get => health;
+            private set
+            {
+                if(value<0)
+                {
+                    throw new ArgumentException("Hero health cannot be below 0.");
+                }
+                health = value;
+            }
+        }
 
-        public int Armour { get => armour; private set => armour = value; }
+        public int Armour 
+        {
+            get => armour;
+            private set
+            {
+                if (value < 0)
+                {
+                    throw new ArgumentException("Hero armour cannot be below 0.");
+                }
+                armour = value;
+            }
+        }
 
         public IWeapon Weapon { get => weapon; private set => weapon = value; }
 
