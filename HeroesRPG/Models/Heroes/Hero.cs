@@ -19,6 +19,7 @@ namespace HeroesRPG.Models.Heroes
 
         public bool IsAlive => throw new NotImplementedException();
 
+
         public void AddWeapon(IWeapon weapon)
         {
             throw new NotImplementedException();
