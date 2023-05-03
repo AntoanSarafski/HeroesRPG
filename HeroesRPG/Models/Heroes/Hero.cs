@@ -91,7 +91,7 @@ namespace HeroesRPG.Models.Heroes
 
         public void AddWeapon(IWeapon weapon)
         {
-            throw new NotImplementedException();
+            Weapon = weapon;
         }
 
         public void TakeDamage(int points)
