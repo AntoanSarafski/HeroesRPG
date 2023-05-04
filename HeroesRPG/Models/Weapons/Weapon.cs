@@ -1,10 +1,4 @@
 ﻿using Heroes.Models.Contracts;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
 namespace HeroesRPG.Models.Weapons
 {
     public abstract class Weapon : IWeapon
@@ -17,8 +11,10 @@ namespace HeroesRPG.Models.Weapons
         {
             Name = name;
             Durability = durability;
-            Damage = damage;
+            Damage = damage; 
         }
+
+
         public string Name
         {
             get => name;
@@ -53,8 +49,8 @@ namespace HeroesRPG.Models.Weapons
             set
             {
                 if(value < 0) 
-                { 
-                    throw new ArgumentException("Damage cannot be below 0.")
+                {
+                    throw new ArgumentException("Damage cannot be below 0.");
                 }
                 this.damage = value;
             }
