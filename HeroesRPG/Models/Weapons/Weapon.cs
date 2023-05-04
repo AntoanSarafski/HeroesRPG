@@ -11,11 +11,13 @@ namespace HeroesRPG.Models.Weapons
     {
         private string name;
         private int durability;
+        private int damage;
 
-        public Weapon(string name, int durability)
+        public Weapon(string name, int durability, int damage)
         {
             Name = name;
             Durability = durability;
+            Damage = damage;
         }
         public string Name
         {
@@ -42,6 +44,19 @@ namespace HeroesRPG.Models.Weapons
 
 
                 durability = value;
+            }
+        }
+
+        private int Damage
+        {
+            get => this.damage;
+            set
+            {
+                if(value < 0) 
+                { 
+                    throw new ArgumentException("Damage cannot be below 0.")
+                }
+                this.damage = value;
             }
         }
 
