@@ -9,9 +9,9 @@ namespace HeroesRPG.Models.Weapons
 {
     public class Claymore : Weapon
     {
-        private int claymoreDamage = 20;
+        private const int DAMAGE = 20;
         public Claymore(string name, int durability) 
-            : base(name, durability, 20)
+            : base(name, durability, DAMAGE)
         {
         }
     }

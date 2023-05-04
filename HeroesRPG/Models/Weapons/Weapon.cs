@@ -57,8 +57,14 @@ namespace HeroesRPG.Models.Weapons
         }
 
         public int DoDamage()
-        { 
-            throw new NotImplementedException();
+        {
+            this.Durability--;
+
+            if(this.Durability == 0)
+            {
+                return 0;
+            }
+            return this.Damage;
         }
     }
 }

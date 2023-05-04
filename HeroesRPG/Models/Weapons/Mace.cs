@@ -5,9 +5,9 @@ namespace HeroesRPG.Models.Weapons
 {
     public class Mace : Weapon
     {
-        private int maceDamage = 25;
-        public Mace(string name, int durability, int damage) 
-            : base(name, durability, 25)
+        private const int DAMAGE = 25;
+        public Mace(string name, int durability) 
+            : base(name, durability, DAMAGE)
         {
         }
     }
