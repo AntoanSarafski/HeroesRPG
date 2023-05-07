@@ -98,7 +98,12 @@ namespace HeroesRPG.Models.Heroes
         {
             var armourLeft = this.Armour - points;
 
-            if (armourLeft < 0)
+            if (armourLeft > 0)
+            {
+                this.Armour = armourLeft;
+            }
+
+            else 
             {
                 this.Armour = 0;
                 var healthLeft = this.Health + armourLeft;
@@ -110,10 +115,6 @@ namespace HeroesRPG.Models.Heroes
                 {
                     this.Health = healthLeft;
                 }
-            }
-            else
-            {
-                this.Armour = armourLeft;
             }
         }
     }
