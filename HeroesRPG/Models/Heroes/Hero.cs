@@ -101,14 +101,14 @@ namespace HeroesRPG.Models.Heroes
             if (armourLeft < 0)
             {
                 this.Armour = 0;
-                var healthLeft = this.Health - armourLeft;
+                var healthLeft = this.Health + armourLeft;
                 if (healthLeft < 0)
                 {
                     this.Health = 0;
                 }
                 else
                 {
-                    this.Health -= armourLeft;
+                    this.Health = healthLeft;
                 }
             }
             else
