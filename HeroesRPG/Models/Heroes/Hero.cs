@@ -96,7 +96,25 @@ namespace HeroesRPG.Models.Heroes
 
         public void TakeDamage(int points)
         {
-            throw new NotImplementedException();
+            var armourLeft = this.Armour - points;
+
+            if (armourLeft < 0)
+            {
+                this.Armour = 0;
+                var healthLeft = this.Health - armourLeft;
+                if (healthLeft < 0)
+                {
+                    this.Health = 0;
+                }
+                else
+                {
+                    this.Health -= armourLeft;
+                }
+            }
+            else
+            {
+                this.Armour = armourLeft;
+            }
         }
     }
 }
