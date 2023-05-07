@@ -15,7 +15,7 @@ namespace HeroesRPG.Models.Heroes
         private IWeapon weapon;
         private bool isAlive;
 
-        public Hero(string name, int health, int armour)
+        protected Hero(string name, int health, int armour)
         {
             Name = name;
             Health = health;

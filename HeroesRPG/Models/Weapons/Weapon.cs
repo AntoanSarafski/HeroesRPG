@@ -7,7 +7,7 @@ namespace HeroesRPG.Models.Weapons
         private int durability;
         private int damage;
 
-        public Weapon(string name, int durability, int damage)
+        protected Weapon(string name, int durability, int damage)
         {
             Name = name;
             Durability = durability;
