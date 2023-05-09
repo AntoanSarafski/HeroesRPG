@@ -68,7 +68,7 @@ namespace HeroesRPG.Models.Map
                         allKnightsAreDead = false;
                         aliveKnights++; 
 
-                        foreach(var barbarian in barbarians)
+                        foreach(var barbarian in barbarians.Where(b => b.IsAlive))
                         {
                             var weaponDamage = knight.Weapon.DoDamage();
                             barbarian.TakeDamage(weaponDamage);
@@ -83,7 +83,7 @@ namespace HeroesRPG.Models.Map
                         allBarbariansAreDead = false;
                         aliveBarbarians++;
 
-                        foreach (var knight in knights)
+                        foreach (var knight in knights.Where(k => k.IsAlive))
                         {
                             var weaponDamage = barbarian.Weapon.DoDamage();
 
@@ -104,7 +104,7 @@ namespace HeroesRPG.Models.Map
                 }
             }
 
-            throw new InvalidOperationException("The fight logic has a bug.");
+            throw new InvalidOperationException("The map fight logic has a bug.");
         }
     }
 }
