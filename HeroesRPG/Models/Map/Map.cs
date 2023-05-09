@@ -56,11 +56,17 @@ namespace HeroesRPG.Models.Map
             {
                 var allKnightsAreDead = true;
                 var allBarbariansAreDead = true;
+
+                var aliveKnights = 0;
+                var aliveBarbarians = 0;
+
+
                 foreach (var knight in knights)
                 {
                     if (knight.IsAlive)
                     {
                         allKnightsAreDead = false;
+                        aliveKnights++; 
 
                         foreach(var barbarian in barbarians)
                         {
@@ -75,6 +81,7 @@ namespace HeroesRPG.Models.Map
                     if (barbarian.IsAlive)
                     {
                         allBarbariansAreDead = false;
+                        aliveBarbarians++;
 
                         foreach (var knight in knights)
                         {
@@ -83,6 +90,17 @@ namespace HeroesRPG.Models.Map
                             knight.TakeDamage(weaponDamage);
                         }
                     }
+                }
+
+                if (allKnightsAreDead)
+                {
+                    var deathBarbarians = barbarians.Count - aliveBarbarians;
+                    return $"The barbarians took {deathBarbarians} casualties but won the battle.";
+                }
+                if (allBarbariansAreDead)
+                {
+                    var deathKnights = knights.Count - aliveKnights;
+                    return $"The knights took {deathKnights} casualties but won the battle.";
                 }
             }
         }
