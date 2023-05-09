@@ -44,7 +44,7 @@ namespace HeroesRPG.Models.Map
                         }
                         else
                         {
-                            throw new ArgumentException("Invalid player type.");
+                            throw new ArgumentException("Invalid hero type.");
                         }
                     }
                 }
@@ -54,7 +54,8 @@ namespace HeroesRPG.Models.Map
 
             while (continueBattle)
             {
-                var allKnightsAreDead = false;
+                var allKnightsAreDead = true;
+                var allBarbariansAreDead = true;
                 foreach (var knight in knights)
                 {
                     if (knight.IsAlive)
@@ -65,6 +66,21 @@ namespace HeroesRPG.Models.Map
                         {
                             var weaponDamage = knight.Weapon.DoDamage();
                             barbarian.TakeDamage(weaponDamage);
+                        }
+                    }
+                }
+
+                foreach (var barbarian in barbarians)
+                {
+                    if (barbarian.IsAlive)
+                    {
+                        allBarbariansAreDead = false;
+
+                        foreach (var knight in knights)
+                        {
+                            var weaponDamage = barbarian.Weapon.DoDamage();
+
+                            knight.TakeDamage(weaponDamage);
                         }
                     }
                 }
