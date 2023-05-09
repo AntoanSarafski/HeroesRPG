@@ -103,6 +103,8 @@ namespace HeroesRPG.Models.Map
                     return $"The knights took {deathKnights} casualties but won the battle.";
                 }
             }
+
+            throw new InvalidOperationException("The fight logic has a bug.");
         }
     }
 }
