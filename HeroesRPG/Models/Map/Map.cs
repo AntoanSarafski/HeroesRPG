@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Transactions;
 
 namespace HeroesRPG.Models.Map
 {
@@ -44,6 +45,26 @@ namespace HeroesRPG.Models.Map
                         else
                         {
                             throw new ArgumentException("Invalid player type.");
+                        }
+                    }
+                }
+            }
+
+            var continueBattle = true;
+
+            while (continueBattle)
+            {
+                var allKnightsAreDead = false;
+                foreach (var knight in knights)
+                {
+                    if (knight.IsAlive)
+                    {
+                        allKnightsAreDead = false;
+
+                        foreach(var barbarian in barbarians)
+                        {
+                            var weaponDamage = knight.Weapon.DoDamage();
+                            barbarian.TakeDamage(weaponDamage);
                         }
                     }
                 }
