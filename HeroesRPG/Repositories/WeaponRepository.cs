@@ -32,7 +32,11 @@ namespace HeroesRPG.Repositories
 
         public IWeapon FindByName(string name)
         {
-            throw new NotImplementedException();
+            if (_weapons.ContainsKey(name))
+            {
+                return _weapons[name];
+            }
+            return null;
         }
 
     }
