@@ -11,6 +11,11 @@ namespace HeroesRPG.Repositories
     public class WeaponRepository : IRepository<IWeapon>
     {
         private readonly Dictionary<string, IWeapon> _weapons;
+
+        public WeaponRepository()
+        {
+            _weapons = new Dictionary<string, IWeapon>();
+        }
         public IReadOnlyCollection<IWeapon> Models => _weapons.Values;
 
         public void Add(IWeapon model)

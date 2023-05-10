@@ -12,6 +12,10 @@ namespace HeroesRPG.Repositories
     {
         private readonly Dictionary<string, IHero> _heroes;
 
+        public HeroRepository()
+        {
+            _heroes = new Dictionary<string, IHero>();
+        }
         public IReadOnlyCollection<IHero> Models => _heroes.Values;
 
         public void Add(IHero model)
