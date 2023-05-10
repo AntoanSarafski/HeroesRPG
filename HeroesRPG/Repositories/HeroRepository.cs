@@ -30,9 +30,11 @@ namespace HeroesRPG.Repositories
 
         public IHero FindByName(string name)
         {
-            
+            if (_heroes.ContainsKey(name))
+            {
+                return _heroes[name];
+            }
+                return null;
         }
-
-   
     }
 }
