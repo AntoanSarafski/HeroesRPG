@@ -2,6 +2,7 @@
 using Heroes.Models.Contracts;
 using Heroes.Repositories.Contracts;
 using HeroesRPG.Models.Heroes;
+using HeroesRPG.Models.Weapons;
 using HeroesRPG.Repositories;
 using System;
 using System.Collections.Generic;
@@ -50,6 +51,15 @@ namespace Heroes.Core
             {
                 throw new InvalidOperationException($"The weapon {name} already exist.");
             }
+            IWeapon weapon = type switch
+            {
+                nameof(Mace) => new Mace(name, durability),
+                nameof(Claymore) => new Claymore(name, durability),
+                _ => throw new InvalidOperationException("Invalid weapon type.")
+            };
+            weapons.Add(weapon);
+
+            return $"A {type.ToLower()} {name} is added to the collection.";
         }
 
 
