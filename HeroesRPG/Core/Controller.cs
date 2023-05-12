@@ -44,6 +44,15 @@ namespace Heroes.Core
         }
 
 
+        public string CreateWeapon(string type, string name, int durability)
+        {
+            if (weapons.FindByName(name) != null)
+            {
+                throw new InvalidOperationException($"The weapon {name} already exist.");
+            }
+        }
+
+
         public string AddWeaponToHero(string weaponName, string heroName)
         {
             throw new NotImplementedException();
@@ -51,10 +60,6 @@ namespace Heroes.Core
 
         
 
-        public string CreateWeapon(string type, string name, int durability)
-        {
-            throw new NotImplementedException();
-        }
 
         public string HeroReport()
         {
