@@ -65,7 +65,8 @@ namespace Heroes.Core
 
         public string AddWeaponToHero(string weaponName, string heroName)
         {
-
+            var hero = heroes.FindByName(heroName);
+            var weapon = weapons.FindByName(weaponName);
             if (heroes.FindByName(heroName) == null)
             {
                 throw new InvalidOperationException($"Hero {heroName} does not exist.");
@@ -74,6 +75,17 @@ namespace Heroes.Core
             {
                 throw new InvalidOperationException($"Weapon {weaponName} does not exist.");
             }
+            if(hero.Weapon != null)
+            {
+                throw new InvalidOperationException($"Hero {heroName} is well-armed.");
+            }
+
+            hero.AddWeapon(weapon);
+
+            weapons.Remove(weapon);
+
+            var weaponType = weapon.GetType().Name.ToLower();
+            return $"Hero {heroName} can participate in battle using a {weaponType}.";
         }
 
         
