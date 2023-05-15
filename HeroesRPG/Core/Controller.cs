@@ -101,6 +101,12 @@ namespace Heroes.Core
                 .OrderBy(h => h.GetType().Name)
                 .ThenByDescending(h => h.Health)
                 .ThenBy(h => h.Name);
+
+            foreach (var hero in sortedHeroes)
+            {
+                result.AppendLine(hero.ToString());
+            }
+            return result.ToString();
                 
         }
 

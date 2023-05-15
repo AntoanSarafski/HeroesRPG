@@ -124,7 +124,14 @@ namespace HeroesRPG.Models.Heroes
 
         public override string ToString()
         {
-            return base.ToString();
+            var result = new StringBuilder();
+
+            result.AppendLine($"{this.GetType().Name}: {this.Name}");
+            result.AppendLine($"--Health: {this.Health}");
+            result.AppendLine($"--Armour: {this.Armour}");
+            result.AppendLine($"--Weapon: {(this.Weapon == null ? "Unarmed" : this.Weapon.Name)}");
+
+            return result.ToString();
         }
     }
 }
