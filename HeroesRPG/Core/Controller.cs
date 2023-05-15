@@ -86,6 +86,7 @@ namespace Heroes.Core
 
             var weaponType = weapon.GetType().Name.ToLower();
             return $"Hero {heroName} can participate in battle using a {weaponType}.";
+
         }
 
         
@@ -93,7 +94,20 @@ namespace Heroes.Core
 
         public string HeroReport()
         {
-            throw new NotImplementedException();
+            var result = new StringBuilder();
+
+            var sortedHeroes = heroes
+                .Models
+                .OrderBy(h => h.GetType().Name)
+                .ThenByDescending(h => h.Health)
+                .ThenBy(h => h.Name);
+
+            foreach (var hero in sortedHeroes)
+            {
+                result.AppendLine(hero.ToString());
+            }
+            return result.ToString();
+                
         }
 
         public string StartBattle()
