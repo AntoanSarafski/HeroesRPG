@@ -71,11 +71,11 @@ namespace Heroes.Core
             {
                 throw new InvalidOperationException($"Hero {heroName} does not exist.");
             }
-            if(weapons.FindByName(weaponName) == null)
+            if (weapons.FindByName(weaponName) == null)
             {
                 throw new InvalidOperationException($"Weapon {weaponName} does not exist.");
             }
-            if(hero.Weapon != null)
+            if (hero.Weapon != null)
             {
                 throw new InvalidOperationException($"Hero {heroName} is well-armed.");
             }
@@ -89,7 +89,7 @@ namespace Heroes.Core
 
         }
 
-        
+
 
 
         public string HeroReport()
@@ -107,7 +107,7 @@ namespace Heroes.Core
                 result.AppendLine(hero.ToString());
             }
             return result.ToString();
-                
+
         }
 
         public string StartBattle()
