@@ -121,5 +121,10 @@ namespace HeroesRPG.Models.Heroes
                 }
             }
         }
+
+        public override string ToString()
+        {
+            return base.ToString();
+        }
     }
 }
